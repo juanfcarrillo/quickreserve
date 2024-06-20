@@ -26,66 +26,6 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@
 export function Guests() {
   return (
     <div className="flex h-screen w-full">
-      <nav className="bg-background border-r flex flex-col items-start justify-between px-4 py-6 w-64">
-        <div className="grid gap-6">
-          <Link href="#" className="flex items-center gap-2 text-lg font-semibold" prefetch={false}>
-            <MountainIcon className="w-6 h-6" />
-            <span>Hotel Manager</span>
-          </Link>
-          <div className="grid gap-2">
-            <Link
-              href="#"
-              className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"
-              prefetch={false}
-            >
-              <CalendarIcon className="w-5 h-5" />
-              <span>Reservations</span>
-            </Link>
-            <Link
-              href="#"
-              className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"
-              prefetch={false}
-            >
-              <HomeIcon className="w-5 h-5" />
-              <span>Rooms</span>
-            </Link>
-            <Link
-              href="#"
-              className="flex items-center gap-2 text-sm font-medium text-primary hover:text-foreground"
-              prefetch={false}
-            >
-              <UserIcon className="w-5 h-5" />
-              <span>Guests</span>
-            </Link>
-            <Link
-              href="#"
-              className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"
-              prefetch={false}
-            >
-              <ClipboardIcon className="w-5 h-5" />
-              <span>Housekeeping</span>
-            </Link>
-            <Link
-              href="#"
-              className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"
-              prefetch={false}
-            >
-              <BarChartIcon className="w-5 h-5" />
-              <span>Reports</span>
-            </Link>
-          </div>
-        </div>
-        <div className="flex items-center gap-2">
-          <Avatar className="w-8 h-8 border">
-            <AvatarImage src="/placeholder-user.jpg" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <div className="grid gap-0.5">
-            <div className="font-medium">John Doe</div>
-            <div className="text-xs text-muted-foreground">Hotel Manager</div>
-          </div>
-        </div>
-      </nav>
       <main className="flex-1 bg-muted p-6">
         <div className="grid gap-6">
           <div className="flex items-center justify-between">

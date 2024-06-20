@@ -110,7 +110,7 @@ export function Reports() {
             <Card>
               <CardHeader>
                 <CardTitle>Revenue</CardTitle>
-                <CardDescription>Monitor your hotel's revenue performance.</CardDescription>
+                <CardDescription>Monitor your hotel&apos;s revenue performance.</CardDescription>
               </CardHeader>
               <CardContent>
                 <BarChart className="aspect-[4/3]" />
@@ -137,7 +137,7 @@ export function Reports() {
             <Card>
               <CardHeader>
                 <CardTitle>Booking Trends</CardTitle>
-                <CardDescription>Understand your hotel's booking patterns.</CardDescription>
+                <CardDescription>Understand your hotel&apos;s booking patterns.</CardDescription>
               </CardHeader>
               <CardContent>
                 <TimeseriesChart className="aspect-[4/3]" />

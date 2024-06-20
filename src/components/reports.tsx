@@ -204,7 +204,7 @@ function BarChart(props: React.HTMLAttributes<HTMLDivElement>) {
             },
           },
         }}
-        tooltipLabel={({ id }: { id: string }) => `${id}`}
+        tooltipLabel={({ id }: { id: any }) => `${id}`}
         enableLabel={false}
         role="application"
         ariaLabel="A bar chart showing data"

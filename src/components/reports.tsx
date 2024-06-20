@@ -24,6 +24,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { ResponsiveLine } from '@nivo/line'
 import { ResponsiveBar } from '@nivo/bar'
 import { ResponsivePie } from '@nivo/pie'
+import { HtmlHTMLAttributes } from 'react'
 
 export function Reports() {
   return (
@@ -159,7 +160,7 @@ export function Reports() {
   )
 }
 
-function BarChart(props: React.SVGProps<SVGSVGElement>) {
+function BarChart(props: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...props}>
       <ResponsiveBar
@@ -203,7 +204,7 @@ function BarChart(props: React.SVGProps<SVGSVGElement>) {
             },
           },
         }}
-        tooltipLabel={({ id }) => `${id}`}
+        tooltipLabel={({ id }: { id: string }) => `${id}`}
         enableLabel={false}
         role="application"
         ariaLabel="A bar chart showing data"
@@ -300,7 +301,7 @@ function HomeIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 
-function LineChart(props: React.SVGProps<SVGSVGElement>) {
+function LineChart(props: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...props}>
       <ResponsiveLine
@@ -394,7 +395,7 @@ function MountainIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 
-function PieChart(props: React.SVGProps<SVGSVGElement>) {
+function PieChart(props: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...props}>
       <ResponsivePie
@@ -413,7 +414,7 @@ function PieChart(props: React.SVGProps<SVGSVGElement>) {
         borderWidth={1}
         borderColor={'#ffffff'}
         enableArcLinkLabels={false}
-        arcLabel={(d) => `${d.id}`}
+        arcLabel={(d: any) => `${d.id}`}
         arcLabelsTextColor={'#ffffff'}
         arcLabelsRadiusOffset={0.65}
         colors={['#2563eb']}
@@ -462,7 +463,7 @@ function PlusIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 
-function TimeseriesChart(props: React.SVGProps<SVGSVGElement>) {
+function TimeseriesChart(props: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...props}>
       <ResponsiveLine

@@ -26,6 +26,7 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
 import { Card } from '@/components/ui/card'
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table'
+import React from 'react'
 
 export function Landing() {
   return (
@@ -134,7 +135,7 @@ export function Landing() {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="room-type">Room Type</Label>
-                  <Select id="room-type">
+                  <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Select room type" />
                     </SelectTrigger>
@@ -283,7 +284,7 @@ export function Landing() {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="room-type">Room Type</Label>
-                  <Select id="room-type">
+                  <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Select room type" />
                     </SelectTrigger>
@@ -296,7 +297,7 @@ export function Landing() {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="room-status">Room Status</Label>
-                  <Select id="room-status">
+                  <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Select room status" />
                     </SelectTrigger>
@@ -419,7 +420,7 @@ export function Landing() {
   )
 }
 
-function BarChartIcon(props) {
+function BarChartIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -441,7 +442,7 @@ function BarChartIcon(props) {
 }
 
 
-function CalendarIcon(props) {
+function CalendarIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -464,7 +465,7 @@ function CalendarIcon(props) {
 }
 
 
-function ClipboardIcon(props) {
+function ClipboardIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -485,7 +486,7 @@ function ClipboardIcon(props) {
 }
 
 
-function FilePenIcon(props) {
+function FilePenIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -507,7 +508,7 @@ function FilePenIcon(props) {
 }
 
 
-function HomeIcon(props) {
+function HomeIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -528,7 +529,7 @@ function HomeIcon(props) {
 }
 
 
-function MountainIcon(props) {
+function MountainIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -548,7 +549,7 @@ function MountainIcon(props) {
 }
 
 
-function PlusIcon(props) {
+function PlusIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -569,7 +570,7 @@ function PlusIcon(props) {
 }
 
 
-function TrashIcon(props) {
+function TrashIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -591,7 +592,7 @@ function TrashIcon(props) {
 }
 
 
-function UserIcon(props) {
+function UserIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -612,7 +613,7 @@ function UserIcon(props) {
 }
 
 
-function XIcon(props) {
+function XIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

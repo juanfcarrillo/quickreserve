@@ -182,14 +182,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <ClipboardIcon className="w-5 h-5" />
                 <span>Housekeeping</span>
               </Link>
-              <Link
+              {/* <Link
                 href="/admin"
                 className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"
                 prefetch={false}
               >
                 <BarChartIcon className="w-5 h-5" />
                 <span>Admin</span>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="flex items-center gap-2">

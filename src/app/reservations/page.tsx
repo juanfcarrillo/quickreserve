@@ -1,7 +1,11 @@
-import { Reservations } from '@/components/reservations';
+import { Reservations } from '@/components/reservations'
 
 export default function Page() {
   return (
-    <Reservations />
-  );
+    <div className="flex h-screen w-full">
+      <main className="flex-1 bg-muted p-6">
+        <Reservations />
+      </main>
+    </div>
+  )
 }

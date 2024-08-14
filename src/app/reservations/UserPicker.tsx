@@ -37,8 +37,8 @@ export function UserPicker({ onGuestSelected }: UserPickerProps) {
                 hasSelected
                     ? <div className="text-sm text-muted-foreground">Guest selected: {guest?.name}</div>
                     : (
-                        <div className="grid gap-4 py-4">
-                            <form onSubmit={handleSubmit} className="grid gap-4 py-4">
+                        <div className="grid gap-4">
+                            <form onSubmit={handleSubmit} className="grid gap-4">
                                 <Label htmlFor="email">
                                     User email
                                 </Label>

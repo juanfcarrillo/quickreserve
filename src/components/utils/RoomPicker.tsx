@@ -34,8 +34,8 @@ export function RoomPicker({ onRoomSelected }: RoomPickerProps) {
                 hasSelected
                     ? <div className="text-sm text-muted-foreground">Room selected: {room?.name}</div>
                     : (
-                        <div className="grid gap-4 py-4">
-                            <form onSubmit={handleSubmit} className="grid gap-4 py-4">
+                        <div className="grid gap-4">
+                            <form onSubmit={handleSubmit} className="grid gap-4">
                                 <Label htmlFor="number">
                                     Room number
                                 </Label>

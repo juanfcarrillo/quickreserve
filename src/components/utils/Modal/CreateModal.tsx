@@ -74,7 +74,7 @@ export function createModal<const Schema extends InputSchema>({ schema }: { sche
         return (
             <Dialog open={isModalOpen} onOpenChange={(open: boolean) => onOpenChange?.(open)}>
                 <DialogContent className="sm:max-w-md">
-                    <form onSubmit={handleSubmit} className="grid gap-4 py-4 w-full">
+                    <form onSubmit={handleSubmit} className="grid gap-4 w-full">
                         <DialogHeader>
                             <DialogTitle>{title}</DialogTitle>
                             {subtitle && <DialogDescription>{subtitle}</DialogDescription>}

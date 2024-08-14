@@ -1,6 +1,7 @@
 import { v4 as uuid } from 'uuid'
+import { Room } from './Room'
 
-enum CleaningStatus {
+export enum CleaningStatus {
     NotAssigned = 'NotAssigned',
     Pending = 'Pending',
     Completed = 'Completed',
@@ -12,13 +13,15 @@ export interface Cleaning {
     dueDate: Date
     status: CleaningStatus
     asignedTo: string
+    room: Room
 }
 
-export function createCleaning(dueDate: Date, asignedTo: string): Cleaning {
+export function createCleaning(dueDate: Date, asignedTo: string, room: Room): Cleaning {
     return {
         id: uuid(),
         dueDate: dueDate,
         status: CleaningStatus.Pending,
-        asignedTo: asignedTo
+        asignedTo: asignedTo,
+        room
     }
 }

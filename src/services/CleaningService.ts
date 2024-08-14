@@ -1,6 +1,6 @@
 import { Cleaning } from '@/models/Cleaning'
 import { db } from '@/lib/firebase/firebaseConfig'
-import { collection, deleteDoc, doc, getDocs, setDoc, Timestamp } from 'firebase/firestore'
+import { collection, deleteDoc, doc, getDocs, onSnapshot, setDoc, Timestamp } from 'firebase/firestore'
 
 export const CLEANING_COLLECTION = 'cleanings'
 
@@ -9,7 +9,8 @@ export async function createCleaningService(cleaning: Cleaning) {
         id: cleaning.id,
         dueDate: Timestamp.fromDate(cleaning.dueDate),
         status: cleaning.status,
-        asignedTo: cleaning.asignedTo
+        asignedTo: cleaning.asignedTo,
+        room: cleaning.room
     }
 
     await setDoc(doc(db, CLEANING_COLLECTION, cleaning.id), firebaseCleaning)
@@ -26,7 +27,8 @@ export async function getAllCleaningService() {
             id: doc.id,
             dueDate: data.dueDate.toDate(),
             status: data.status,
-            asignedTo: data.asignedTo
+            asignedTo: data.asignedTo,
+            room: data.room
         }
         cleanings.push(cleaning)
     })
@@ -40,4 +42,25 @@ export async function deleteCleaningService(id: string) {
 
 export async function updateCleaningService(cleaning: Cleaning) {
     await setDoc(doc(db, CLEANING_COLLECTION, cleaning.id), cleaning)
+}
+
+export function suscribeToCleaningService(callback: (cleanings: Cleaning[]) => void) {
+    onSnapshot(collection(db, CLEANING_COLLECTION), (snapshot) => {
+        const cleanings: Cleaning[] = []
+
+        snapshot.forEach((doc) => {
+            const data = doc.data()
+
+            const cleaning: Cleaning = {
+                id: doc.id,
+                dueDate: data.dueDate.toDate(),
+                status: data.status,
+                asignedTo: data.asignedTo,
+                room: data.room
+            }
+            cleanings.push(cleaning)
+        })
+
+        callback(cleanings)
+    }) 
 }

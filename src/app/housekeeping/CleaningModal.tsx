@@ -10,15 +10,15 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { CalendarInput } from '@/components/utils/Modal/CalendarInput'
 import { RoomPicker } from '@/components/utils/RoomPicker'
+import { createCleaning } from '@/models/Cleaning'
+import { createCleaningService } from '@/services/CleaningService'
 import { ChangeEvent, useState } from 'react'
-import { UserPicker } from './UserPicker'
-import { createReservation } from '@/models/Reservation'
-import { createReservationService } from '@/services/ReservationService'
 
-export function ReservationModal() {
+export function CleaningModal() {
     const [fields, setFields] = useState<Record<string, any>>({})
 
     function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
@@ -29,15 +29,15 @@ export function ReservationModal() {
     }
 
     async function handleClick() {
-        const newReservation = createReservation(fields.guest, new Date(fields.checkIn), new Date(fields.checkOut), fields.room)
+        const newReservation = createCleaning(new Date(fields.dueDate), fields.assignedTo, fields.room)
 
-        await createReservationService(newReservation)
+        await createCleaningService(newReservation)
     }
 
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button>New Reservation</Button>
+                <Button>Add new cleaning</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
@@ -46,34 +46,31 @@ export function ReservationModal() {
                         Make changes to your reservation here. Click save when youre done.
                     </DialogDescription>
                 </DialogHeader>
-                <div className="grid gap-4">
+                <div className="flex flex-col gap-8">
                     <div className="flex gap-4 justify-center">
-                        <Label htmlFor="name" className="text-right">
-                            Check in
+                        <Label htmlFor="assignedTo">
+                            Assigned to
                         </Label>
-                        <CalendarInput
-                            name="checkIn"
-                            placeholder="Check in"
+                        <Input
+                            name="assignedTo"
+                            placeholder="Assigned to"
                             onChange={handleChange}
                             required
                         />
                     </div>
                     <div className="flex gap-4 justify-center">
-                        <Label htmlFor="username" className="text-right">
-                            Check out
+                        <Label htmlFor="dueDate" className="text-right">
+                            Due date
                         </Label>
                         <CalendarInput
-                            name="checkOut"
-                            placeholder="Check out"
+                            name="dueDate"
+                            placeholder="Due date"
                             required
                             onChange={handleChange}
                         />
                     </div>
                     <div className="flex gap-4 justify-center">
                         <RoomPicker onRoomSelected={(room) => setFields({ ...fields, room })} />
-                    </div>
-                    <div className="flex gap-4 justify-center">
-                        <UserPicker onGuestSelected={(guest) => setFields({ ...fields, guest })} />
                     </div>
                 </div>
                 <DialogFooter>

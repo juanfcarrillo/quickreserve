@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 import React from 'react'
 
 export function Landing() {
@@ -7,14 +8,18 @@ export function Landing() {
       <h1 className="text-4xl font-bold mb-4">Welcome to Hotel Manager</h1>
       <p className="text-lg text-muted-foreground mb-8">Manage your hotel operations with ease.</p>
       <div className="flex gap-4">
-        <Button>
-          <PlusIcon className="w-4 h-4 mr-2" />
-          Add Reservation
-        </Button>
-        <Button variant="outline">
-          <HomeIcon className="w-4 h-4 mr-2" />
-          View Rooms
-        </Button>
+        <Link href="/reservations">
+          <Button>
+            <PlusIcon className="w-4 h-4 mr-2" />
+            Add Reservation
+          </Button>
+        </Link>
+        <Link href="/rooms">
+          <Button variant="outline">
+            <HomeIcon className="w-4 h-4 mr-2" />
+            View Rooms
+          </Button>
+        </Link>
       </div>
     </section>
   )
